@@ -4,8 +4,13 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const server = require('./server');
 const authRoute = require('./app/auth/authroute');
+const productRoute = require('./app/product/productRoute');
 const updateAccountRoute = require('./app/updateAccount/updateAccountRoute');
 const categoriesRoute = require('./app/categories/categoriesRouter');
+const cartRoute = require('./app/cart/cartRouter');
+const orderReceived = require('./app/orderReceived/orRouter');
+
+const wishlist = require('./app/wishlist/wishlistRouter');
 require('dotenv').config();
 // const RoomRoute = require('./room/routes');
 // const CustomRoomRoute = require('./customroom/routes');
@@ -61,6 +66,10 @@ mongoose
 app.use(authRoute);
 app.use(updateAccountRoute);
 app.use(categoriesRoute);
+app.use(productRoute);
+app.use(cartRoute);
+app.use(orderReceived);
+app.use(wishlist);
 // app.use(RoomRoute);
 // app.use(userRoute);
 // app.use(messageRoute);
